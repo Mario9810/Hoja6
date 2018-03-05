@@ -33,7 +33,7 @@ public class Hoja6 {
             String linea = "";
             while(entrada.ready()){
                 linea = entrada.readLine();
-                texto += linea;
+                texto += linea + '\n';
             }
             System.out.println(linea);
         
