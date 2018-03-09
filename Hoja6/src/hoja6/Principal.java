@@ -5,13 +5,14 @@ import java.util.*;
 
 public class Principal{
 	 public static void main(String[] args) throws FileNotFoundException, UnsupportedEncodingException {
-              FileReader file = new FileReader("CONCATENAR.txt"); 
-             try {
+           
+             FileReader file = new FileReader("cards_desc.txt"); 
+            try {
             Scanner input = new Scanner(file);
             while(input.hasNext())
             {
-             
-           
+                
+            
             }
             input.close();
         }
