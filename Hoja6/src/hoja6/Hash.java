@@ -8,19 +8,19 @@ import java.util.Map;
 public class Hash{
     
     
-    public static void getOurData(String ourFilePath, String ourDataName) throws Exception {
+    public static void mapp(String ourFilePath, String ourDataName) throws Exception {
     
-    Map<String, String> cards = new HashMap<String, String>();
-    BufferedReader in = new BufferedReader(new FileReader(ourFilePath));
-    String line = "";
+        Map<String, String> cards = new HashMap<String, String>();
+        BufferedReader in = new BufferedReader(new FileReader(ourFilePath));
+        String line = "";
 
-    while ((line = in.readLine()) != null) {
-    String parts[] = line.split("|");
+        while ((line = in.readLine()) != null) {
+            String parts[] = line.split("|");
 
-    cards.put(parts[0], parts[1]); // change here
-    System.out.println(cards.toString());
+            cards.put(parts[0], parts[1]); 
+            System.out.println(cards.toString());
 
-    in.close();
-    }
+            in.close();
+        }
   }
 }
