@@ -12,7 +12,7 @@ import java.util.*;
  * @author cooli
  */
 public class FactoryHash {
-    
+    private String Dev = "";
     public Map getMap(int i){
      switch(i){
              case 1:

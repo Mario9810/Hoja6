@@ -29,16 +29,14 @@ public class Principal{
             Map cards = factory.getMap(Integer.parseInt(op));
             
             BufferedReader entrada;
-<<<<<<< HEAD
            // File archivo = new File("cards.txt");
             entrada = new BufferedReader(new FileReader("cards.txt"));
                
           
-           
-=======
+
             entrada = new BufferedReader(new FileReader("cards.txt"));
 
->>>>>>> 9398e043d495291dc0e84379cc8502f0322c0a97
+
             try{
                 while(entrada.ready()){
                     String parts[] = entrada.readLine().split("|");
