@@ -28,9 +28,11 @@ public class Principal{
              
             String texto = new String();
             BufferedReader entrada;
-            File archivo = new File("cards.txt");
-            entrada = new BufferedReader(new FileReader(archivo));
-
+           // File archivo = new File("cards.txt");
+            entrada = new BufferedReader(new FileReader("cards.txt"));
+               
+          
+           
             try{
                 String linea = "";
                 while(entrada.ready()){
