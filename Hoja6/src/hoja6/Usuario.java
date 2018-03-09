@@ -14,4 +14,16 @@ import java.util.ArrayList;
 public class Usuario {
     private ArrayList<Carta> cartas;
     
+    public Usuario(){
+        cartas=new ArrayList<Carta>();
+    }
+    
+    public void addCarta(Carta carta){
+        cartas.add(carta);
+    }
+    
+    public ArrayList<Carta> getCartas(){
+        return cartas;
+    }
+    
 }
