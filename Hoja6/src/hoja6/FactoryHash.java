@@ -13,7 +13,7 @@ import java.util.*;
  */
 public class FactoryHash {
     private String Dev = "";
-    public Map getMap(int i){
+    public Map<String,Carta> getMap(int i){
      switch(i){
              case 1:
                  System.out.println("Esta utilizando LinkedHashMap");

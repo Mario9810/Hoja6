@@ -14,7 +14,7 @@ public class Principal{
             Scanner scaner = new Scanner(System.in);
             FactoryHash factory = new FactoryHash();
             Usuario usuario = new Usuario();
-            ArrayList<Carta> cartaslista= new ArrayList<>();
+            BuscadorCarta buscar=new BuscadorCarta();
 
              System.out.println("Que tipo de mapa desea utilizar?");
              System.out.println("***1. LinkedHashMap\n***2. HashMap\n***3. TreeMap");
@@ -40,8 +40,7 @@ public class Principal{
             try{
                 while(entrada.ready()){
                     String parts[] = entrada.readLine().split("|");
-                    cards.put(parts[0], parts[1]);
-                    cartaslista.add(new Carta(parts[0], parts[1]));
+                    cards.put(parts[0], new Carta(parts[0],parts[1]));
                 }
 
             }catch (IOException e) {
@@ -55,23 +54,29 @@ public class Principal{
                 }
             }
             
-            Set keys = cards.entrySet();
              System.out.println("Que desea hacer?");
              System.out.println("***1. Agregar carta\n***2. Buscar una carta y mostrar su tipo\n***3. Mostrar mis cartas\n***4. Mostrar mis cartas ordenadas por tipo\n***5. Mostrar todas las cartas\n***6. Mostrar todas las cartas por tipo");
              int option=scaner.nextInt();
              switch(option){
                  case 1:
                      System.out.println("Que carta desea agregar?");
-                     String key=scaner.next().toUpperCase();
-                     for(Object entry: keys){
-                         if(entry.equals(key)){
-                             
-                             Usuario.addCarta();
-                         }
+                     String key1=scaner.next().toUpperCase();
+                     System.out.println(buscar.keyExiste(key1,cards));
+                 case 2:
+                     System.out.println("Que carta desea buscar?");
+                     String key2=scaner.next().toUpperCase();
+                     System.out.println(buscar.keyExiste(key2,cards));
+                 case 3:
+                     System.out.println(usuario.getCartas().toString());
+                 case 4:
+                     System.out.println("");
+                 case 5:
+                     System.out.println("");
+                 case 6: System.out.println("");
                         }
                      
                      
-             }
+             
                  
          }
 }
