@@ -18,13 +18,24 @@ public class Principal{
              System.out.println("Que tipo de mapa desea utilizar?");
              System.out.println("***1. LinkedHashMap\n***2. HashMap\n***3. TreeMap");
             
+             while(!scaner.hasNextInt()){
+                System.out.println("Ingrese un numero valido, no una letra.");
+                scaner.next();
+            }
+            int op = scaner.nextInt();
+            Map cards = factory.getMap(op);
+            
+             
             String texto = new String();
             BufferedReader entrada;
-            entrada = new BufferedReader(new FileReader("cards.txt"));
+            File archivo = new File("cards.txt");
+            entrada = new BufferedReader(new FileReader(archivo));
 
             try{
                 String linea = "";
                 while(entrada.ready()){
+                    String parts[] = entrada.readLine().split("|");
+                    cards.put(parts[0], parts[1]);
                     
                 }
                 System.out.println(linea);
