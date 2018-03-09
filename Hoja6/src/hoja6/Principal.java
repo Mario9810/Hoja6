@@ -14,42 +14,66 @@ public class Principal{
             Scanner scaner = new Scanner(System.in);
             FactoryHash factory = new FactoryHash();
             Usuario usuario = new Usuario();
+            ArrayList<Carta> cartaslista= new ArrayList<>();
 
              System.out.println("Que tipo de mapa desea utilizar?");
              System.out.println("***1. LinkedHashMap\n***2. HashMap\n***3. TreeMap");
             
-             while(!scaner.hasNextInt()){
-                System.out.println("Ingrese un numero valido, no una letra.");
-                scaner.next();
-            }
-            int op = scaner.nextInt();
-            Map cards = factory.getMap(op);
+            String op = scaner.next();
             
-             
-            String texto = new String();
+            while(op.equals("1") == false && op.equals("2") == false && op.equals("3") == false){
+                System.out.println("Esta no es una opcion valida. Ingrese una opcion valida.");
+                op=scaner.next();
+            }
+            
+            Map cards = factory.getMap(Integer.parseInt(op));
+            
             BufferedReader entrada;
+<<<<<<< HEAD
            // File archivo = new File("cards.txt");
             entrada = new BufferedReader(new FileReader("cards.txt"));
                
           
            
+=======
+            entrada = new BufferedReader(new FileReader("cards.txt"));
+
+>>>>>>> 9398e043d495291dc0e84379cc8502f0322c0a97
             try{
-                String linea = "";
                 while(entrada.ready()){
                     String parts[] = entrada.readLine().split("|");
                     cards.put(parts[0], parts[1]);
-                    
+                    cartaslista.add(new Carta(parts[0], parts[1]));
                 }
-                System.out.println(linea);
 
             }catch (IOException e) {
+                System.out.println("No se halla el archivo.");
 
             }finally{
                 try{
                     entrada.close();
                 }
-                catch(IOException e1){
+                catch(IOException e){
                 }
             }
-        }
+            
+            Set keys = cards.entrySet();
+             System.out.println("Que desea hacer?");
+             System.out.println("***1. Agregar carta\n***2. Buscar una carta y mostrar su tipo\n***3. Mostrar mis cartas\n***4. Mostrar mis cartas ordenadas por tipo\n***5. Mostrar todas las cartas\n***6. Mostrar todas las cartas por tipo");
+             int option=scaner.nextInt();
+             switch(option){
+                 case 1:
+                     System.out.println("Que carta desea agregar?");
+                     String key=scaner.next().toUpperCase();
+                     for(Object entry: keys){
+                         if(entry.equals(key)){
+                             
+                             Usuario.addCarta();
+                         }
+                        }
+                     
+                     
+             }
+                 
+         }
 }
