@@ -17,6 +17,6 @@ public class BuscadorCarta {
     }
     
     public String buscar(){
-        return;
+        return ;
     }
 }
