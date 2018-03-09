@@ -21,7 +21,7 @@ public class Principal{
             
             String op = scaner.next();
             
-            while(op.equals("1") || op.equals("2") || op.equals("3") == false){
+            while(op.equals("1") == false && op.equals("2") == false && op.equals("3") == false){
                 System.out.println("Esta no es una opcion valida. Ingrese una opcion valida.");
                 op=scaner.next();
             }
