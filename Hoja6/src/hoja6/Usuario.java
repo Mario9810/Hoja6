@@ -6,6 +6,8 @@
 package hoja6;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 
 /**
  *
@@ -44,6 +46,11 @@ public class Usuario {
             cards+=carta.toStringUsuario()+"\n";
         }
         return cards;
+    }
+    public ArrayList<Carta> ordenar(){
+         ArrayList<Carta> sorted = new ArrayList<>();
+         
+        return null;
     }
     
 }
