@@ -41,18 +41,19 @@ public class Principal{
                 }
                 int contador=0;
                 while(contador==0){
-               System.out.println("Que desea hacer?");
-             System.out.println("***1. Agregar carta\n***2. Buscar una carta y mostrar su tipo\n***3. Mostrar mis cartas\n***4. Mostrar mis cartas ordenadas por tipo\n***5. Mostrar todas las cartas\n***6. Mostrar todas las cartas por tipo\n***7.Salir");
-             int option=scaner.nextInt();
+                System.out.println("Que desea hacer?");
+                System.out.println("***1. Agregar carta\n***2. Buscar una carta y mostrar su tipo\n***3. Mostrar mis cartas\n***4. Mostrar mis cartas ordenadas por tipo\n***5. Mostrar todas las cartas\n***6. Mostrar todas las cartas por tipo\n***7.Salir");
+                int option=scaner.nextInt();
              switch(option){
                  case 1:
                      System.out.println("Que carta desea agregar?");
-                     String key1=scaner.next();
+                     String key1=scaner.next().toUpperCase();
                      if(buscar.keyExiste(key1,cards)==false){
                          System.out.println("Esta carta no existe");
                      }
                      else{
                          usuario.addCarta(buscar.getCartaKey(key1,cards));
+                         System.out.println("Carta agregada");
                      }
                      break;
                  case 2:
