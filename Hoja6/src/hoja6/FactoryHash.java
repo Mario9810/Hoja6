@@ -12,7 +12,6 @@ import java.util.*;
  * @author cooli
  */
 public class FactoryHash {
-    private String Dev = "";
     public Map<String,Carta> getMap(int i){
      switch(i){
              case 1:

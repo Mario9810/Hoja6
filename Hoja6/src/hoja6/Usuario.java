@@ -47,9 +47,40 @@ public class Usuario {
         }
         return cards;
     }
-    public ArrayList<Carta> ordenar(){
-      
-        return null;
+    public String ordenar(){
+        ArrayList<Carta> cartasSorted = new ArrayList<>();
+        ArrayList<Carta> hechizos = new ArrayList<>();
+        ArrayList<Carta> monstruos = new ArrayList<>();
+        ArrayList<Carta> trampas = new ArrayList<>();
+        for(Carta entrada:cartas){
+            if(entrada.getTipo().equals("HECHIZO")){
+                hechizos.add(entrada);
+            }
+            else if(entrada.getTipo().equals("MONSTRUO")){
+                monstruos.add(entrada);
+            }
+            else if(entrada.getTipo().equals("TRAMPA")){
+                trampas.add(entrada);
+            }
+        }
+        for(Carta hechizo:hechizos){
+            cartasSorted.add(hechizo);
+        }
+        for(Carta monstruo:monstruos){
+            cartasSorted.add(monstruo);
+        }
+        for(Carta trampa:trampas){
+            cartasSorted.add(trampa);
+        }
+        
+        String cards="";
+        for(Carta carta:cartasSorted){
+            cards+=carta.toStringUsuario()+"\n";
+        }
+        return cards;
+        
     }
+    
+    
     
 }

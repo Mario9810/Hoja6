@@ -43,9 +43,9 @@ public class Principal{
                 while(contador==0){
                 System.out.println("Que desea hacer?");
                 System.out.println("***1. Agregar carta\n***2. Buscar una carta y mostrar su tipo\n***3. Mostrar mis cartas\n***4. Mostrar mis cartas ordenadas por tipo\n***5. Mostrar todas las cartas\n***6. Mostrar todas las cartas por tipo\n***7. Salir");
-                int option=scaner.nextInt();
+                String option=scaner.next();
              switch(option){
-                 case 1:
+                 case "1":
                      System.out.println("Que carta desea agregar?");
                      String key1=scaner.nextLine().toUpperCase();
                      key1=scaner.nextLine().toUpperCase();
@@ -57,7 +57,7 @@ public class Principal{
                          System.out.println("Carta agregada");
                      }
                      break;
-                 case 2:
+                 case "2":
                      System.out.println("Que carta desea buscar?");
                      String key2=scaner.nextLine().toUpperCase();
                      key2=scaner.nextLine().toUpperCase();
@@ -71,8 +71,8 @@ public class Principal{
                      }
                      contador=0;
                      break;
-                 case 3:
-                     if(usuario.getCartas()==null){
+                 case "3":
+                     if(usuario.getCartas().equals("")){
                          System.out.println("Usted no tiene cartas");
                      }
                      else{
@@ -80,20 +80,25 @@ public class Principal{
                      }
                      contador=0;
                      break;
-                 case 4:
-                     System.out.println(usuario.ordenar());
-                     contador=0;
+                 case "4":
+                     if(usuario.getCartas().equals("")){
+                         System.out.println("Usted no tiene cartas");
+                     }
+                     else{
+                        System.out.println(usuario.ordenar());
+                     }
                      break;
-                 case 5:
+                 case "5":
                      buscar.todasMisCartas(cards);
                      break;
-                 case 6: 
-                     System.out.println(buscar.ordenarporTipo(cards));
+                 case "6": 
+                     buscar.todasMisCartas(buscar.ordenarporTipo(cards));
                      break;
-                 case 7:
+                 case "7":
                      System.out.println("Adios");
                      contador=1;
                      break;
+                     
                      
                         } 
                  

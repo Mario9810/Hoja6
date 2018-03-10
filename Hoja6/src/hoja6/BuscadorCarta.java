@@ -11,7 +11,7 @@ import java.util.*;
  * @author cooli
  */
 public class BuscadorCarta {
-    
+    private FactoryHash factoryhash;
     
 
     public BuscadorCarta(){
@@ -39,63 +39,42 @@ public class BuscadorCarta {
     public Carta getCartaKey(String key, Map mapa){
         return (Carta)mapa.get(key);   
     }
-    
    
-    
     public String buscarTipodeCarta(String key, Map mapa){
         return ((Carta)mapa.get(key)).getTipo();
     }
     
-    public List<String> buscarTipo(String value, Map mapa){
-        
-        List<String> valueList = new ArrayList<String>(mapa.values());
-       // int occurrences = Collections.frequency(valueList, value);
-        
-        return valueList;
-    }
     
-    public String tipoExiste(String value, Map mapa){
-        String valor = "";
-        if (mapa.containsValue(value)){
-            valor = value;
-        }
-        else{
-            valor=("No existe este tipo de carta");
-        }
-        return valor;
-        }
-    
-    public Map<String, String> ordenarporTipo(Map<String,Carta> map){
-        List<String> mapKeys = new ArrayList<String>();
-        for(String entrada: map.keySet()){
-            mapKeys.add(entrada);
-        }
-        List<String> mapValues = new ArrayList<String>();
+    public Map<String,Carta> ordenarporTipo(Map<String,Carta> map){
+        Map<String,Carta> cartasSorted = new LinkedHashMap<>();
+        ArrayList<Carta> hechizos = new ArrayList<>();
+        ArrayList<Carta> monstruos = new ArrayList<>();
+        ArrayList<Carta> trampas = new ArrayList<>();
         for(Map.Entry<String, Carta> entrada:map.entrySet()){
-            mapValues.add(entrada.getValue().getTipo());
-        }
-        Collections.sort(mapValues);
-        Collections.sort(mapKeys);
-        
-        LinkedHashMap<String, String> sortedMap =
-        new LinkedHashMap<>();
-        Iterator<String> valueIt = mapValues.iterator();
-    while (valueIt.hasNext()) {
-        String val = valueIt.next();
-        Iterator<String> keyIt = mapKeys.iterator();
-
-        while (keyIt.hasNext()) {
-            String key = keyIt.next();
-            String comp1 = (String) map.get(key).toStringMain();
-            String comp2 = val;
-
-            if (comp1.equals(comp2)) {
-                keyIt.remove();
-                sortedMap.put(key, val);
-                break;
+            if(entrada.getValue().getTipo().equals("HECHIZO")){
+                hechizos.add(entrada.getValue());
+            }
+            else if(entrada.getValue().getTipo().equals("MONSTRUO")){
+                monstruos.add(entrada.getValue());
+            }
+            else if(entrada.getValue().getTipo().equals("TRAMPA")){
+                trampas.add(entrada.getValue());
             }
         }
+        for(Carta hechizo:hechizos){
+            cartasSorted.put(hechizo.getNombre(),hechizo);
+        }
+        for(Carta monstruo:monstruos){
+            cartasSorted.put(monstruo.getNombre(),monstruo);
+        }
+        for(Carta trampa:trampas){
+            cartasSorted.put(trampa.getNombre(),trampa);
+        }
+        
+        
+        
+        return cartasSorted;
     }
-        return sortedMap;
-    }
+    
+        
 }
