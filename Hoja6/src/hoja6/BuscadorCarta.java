@@ -46,6 +46,10 @@ public class BuscadorCarta {
     }
     
     public ArrayList<Carta> buscarTipo(String value, Map mapa){
+        
+        List<String> valueList = new ArrayList<String>(mapa.values());
+        int occurrences = Collections.frequency(valueList, value);
+        
         return null;
     }
     
