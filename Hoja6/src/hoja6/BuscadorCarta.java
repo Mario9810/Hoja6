@@ -64,7 +64,31 @@ public class BuscadorCarta {
         return valor;
         }
     
-    public void ordenarporTipo(){
+    public Map<String, String> ordenarporTipo(Map map){
+        List<String> mapKeys = new ArrayList<String>(map.keySet());
+        List<String> mapValues = new ArrayList<String>(map.values());
+        Collections.sort(mapValues);
+        Collections.sort(mapKeys);
         
+        LinkedHashMap<String, String> sortedMap =
+        new LinkedHashMap<>();
+        Iterator<String> valueIt = mapValues.iterator();
+    while (valueIt.hasNext()) {
+        String val = valueIt.next();
+        Iterator<String> keyIt = mapKeys.iterator();
+
+        while (keyIt.hasNext()) {
+            String key = keyIt.next();
+            String comp1 = (String) map.get(key);
+            String comp2 = val;
+
+            if (comp1.equals(comp2)) {
+                keyIt.remove();
+                sortedMap.put(key, val);
+                break;
+            }
+        }
+    }
+        return sortedMap;
     }
 }

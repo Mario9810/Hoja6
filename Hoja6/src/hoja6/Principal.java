@@ -14,7 +14,7 @@ public class Principal{
             Scanner scaner = new Scanner(System.in);
             FactoryHash factory = new FactoryHash();
             Usuario usuario = new Usuario();
-            BuscadorCarta buscar=new BuscadorCarta();
+            BuscadorCarta buscar= new BuscadorCarta();
 
              System.out.println("Que tipo de mapa desea utilizar?");
              System.out.println("***1. LinkedHashMap\n***2. HashMap\n***3. TreeMap");
@@ -86,7 +86,7 @@ public class Principal{
                      buscar.todasMisCartas(cards);
                      break;
                  case 6: 
-                     System.out.println("");
+                     System.out.println(buscar.ordenarporTipo(cards));
                      break;
                  case 7:
                      System.out.println("Adios");
