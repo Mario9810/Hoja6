@@ -48,8 +48,7 @@ public class Usuario {
         return cards;
     }
     public ArrayList<Carta> ordenar(){
-         ArrayList<Carta> sorted = new ArrayList<>();
-         
+      
         return null;
     }
     

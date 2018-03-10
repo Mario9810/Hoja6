@@ -81,7 +81,7 @@ public class Principal{
                      contador=0;
                      break;
                  case 4:
-                     System.out.println("");
+                     System.out.println(usuario.ordenar());
                      contador=0;
                      break;
                  case 5:
