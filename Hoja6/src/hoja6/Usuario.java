@@ -19,11 +19,31 @@ public class Usuario {
     }
     
     public void addCarta(Carta carta){
-        cartas.add(carta);
+        if(cartaExiste(carta)==true){
+            carta.setCantidad((int) carta.getCantidad()+1);
+        }
+        else{
+            cartas.add(carta);
+            carta.setCantidad((int) carta.getCantidad()+1);
+        }
     }
     
-    public ArrayList<Carta> getCartas(){
-        return cartas;
+    public boolean cartaExiste(Carta card){
+        boolean existe=false;
+        for(Carta carta:cartas){
+            if(carta.getNombre().equals(card.getNombre())){
+                existe=true;
+            }
+        }
+        return existe;
+    }
+    
+    public String getCartas(){
+        String cards="";
+        for(Carta carta:cartas){
+            cards+=carta.toStringUsuario()+"\n";
+        }
+        return cards;
     }
     
 }

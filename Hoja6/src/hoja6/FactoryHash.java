@@ -17,7 +17,7 @@ public class FactoryHash {
      switch(i){
              case 1:
                  System.out.println("Esta utilizando LinkedHashMap");
-                 return new LinkedHashMap();
+                 return new LinkedHashMap<String, Carta>();
              case 2:
                  System.out.println("Esta utilizando HashMap");
                  return new HashMap();

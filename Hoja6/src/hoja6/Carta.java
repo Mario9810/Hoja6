@@ -15,6 +15,7 @@ public class Carta {
     public Carta(String nombre, String tipo){
         this.nombre=nombre;
         this.tipo=tipo;
+        cantidad=0;
     }
     
     public String getNombre(){
@@ -31,5 +32,13 @@ public class Carta {
     
     public int getCantidad(){
         return cantidad;
+    }
+    
+    public String toStringUsuario(){
+        return "Nombre: "+nombre+"\nTipo: "+tipo+"\nCantidad: "+cantidad;
+    }
+    
+    public String toStringMain(){
+        return "Nombre: "+nombre+"\nTipo: "+tipo;
     }
 }

@@ -20,18 +20,29 @@ public class BuscadorCarta {
         
     }
     
-    public String keyExiste(String key, Map mapa){
-        Object value = mapa.get(key);
-        
-        if(value == null){
-           value=("No existe la carta");
+    public void todasMisCartas(Map<String,Carta> mapa){
+        for(Map.Entry<String, Carta> entrada:mapa.entrySet()){
+            System.out.println(entrada.getValue().toStringMain()+"\n");
         }
-        
-        return (String) value;
     }
     
-    public Carta buscarKey(String key, Map mapa){
-        return (Carta) mapa.get(key);
+    public boolean keyExiste(String key, Map mapa){
+        boolean value = true;
+        
+        if(mapa.get(key)==null){
+           value=false;
+           return value;
+        }
+        
+        return value;
+    }
+    
+    public Carta getCartaKey(String key, Map mapa){
+        return (Carta)mapa.get(key);   
+    }
+    
+    public String buscarTipodeCarta(String key, Map mapa){
+        return ((Carta)mapa.get(key)).getTipo();
     }
     
     public ArrayList<Carta> buscarTipo(String value, Map mapa){
@@ -48,4 +59,8 @@ public class BuscadorCarta {
         }
         return valor;
         }
+    
+    public void ordenarporTipo(){
+        
+    }
 }
