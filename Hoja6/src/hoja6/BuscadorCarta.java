@@ -34,12 +34,12 @@ public class BuscadorCarta {
         return (Carta) mapa.get(key);
     }
     
-    public ArrayList<Carta> buscarTipo(String value, Map mapa){
+    public List<String> buscarTipo(String value, Map mapa){
         
         List<String> valueList = new ArrayList<String>(mapa.values());
-        int occurrences = Collections.frequency(valueList, value);
+       // int occurrences = Collections.frequency(valueList, value);
         
-        return null;
+        return valueList;
     }
     
     public String tipoExiste(String value, Map mapa){
