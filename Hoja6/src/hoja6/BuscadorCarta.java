@@ -11,7 +11,6 @@ import java.util.*;
  * @author cooli
  */
 public class BuscadorCarta {
-    private FactoryHash buscador;
     
     
 
@@ -41,6 +40,8 @@ public class BuscadorCarta {
         return (Carta)mapa.get(key);   
     }
     
+   
+    
     public String buscarTipodeCarta(String key, Map mapa){
         return ((Carta)mapa.get(key)).getTipo();
     }
@@ -64,9 +65,15 @@ public class BuscadorCarta {
         return valor;
         }
     
-    public Map<String, String> ordenarporTipo(Map map){
-        List<String> mapKeys = new ArrayList<String>(map.keySet());
-        List<String> mapValues = new ArrayList<String>(map.values());
+    public Map<String, String> ordenarporTipo(Map<String,Carta> map){
+        List<String> mapKeys = new ArrayList<String>();
+        for(String entrada: map.keySet()){
+            mapKeys.add(entrada);
+        }
+        List<String> mapValues = new ArrayList<String>();
+        for(Map.Entry<String, Carta> entrada:map.entrySet()){
+            mapValues.add(entrada.getValue().getTipo());
+        }
         Collections.sort(mapValues);
         Collections.sort(mapKeys);
         
@@ -79,7 +86,7 @@ public class BuscadorCarta {
 
         while (keyIt.hasNext()) {
             String key = keyIt.next();
-            String comp1 = (String) map.get(key);
+            String comp1 = (String) map.get(key).toStringMain();
             String comp2 = val;
 
             if (comp1.equals(comp2)) {
