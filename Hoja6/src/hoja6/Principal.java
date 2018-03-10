@@ -30,17 +30,71 @@ public class Principal{
             
             BufferedReader entrada;
            // File archivo = new File("cards.txt");
-            entrada = new BufferedReader(new FileReader("cards.txt"));
-               
-          
-
-            entrada = new BufferedReader(new FileReader("cards.txt"));
+            entrada = new BufferedReader(new FileReader("cards_desc.txt"));
 
 
             try{
-                while(entrada.ready()){
-                    String parts[] = entrada.readLine().split("|");
-                    cards.put(parts[0], new Carta(parts[0],parts[1]));
+                String linea;
+                while((linea=entrada.readLine())!=null){
+                    String parts[] = linea.split("\\|");
+                    cards.put(parts[0].toUpperCase(), new Carta(parts[0].toUpperCase(),parts[1].toUpperCase()));
+                }
+                int contador=0;
+                while(contador==0){
+               System.out.println("Que desea hacer?");
+             System.out.println("***1. Agregar carta\n***2. Buscar una carta y mostrar su tipo\n***3. Mostrar mis cartas\n***4. Mostrar mis cartas ordenadas por tipo\n***5. Mostrar todas las cartas\n***6. Mostrar todas las cartas por tipo\n***7.Salir");
+             int option=scaner.nextInt();
+             switch(option){
+                 case 1:
+                     System.out.println("Que carta desea agregar?");
+                     String key1=scaner.next();
+                     if(buscar.keyExiste(key1,cards)==false){
+                         System.out.println("Esta carta no existe");
+                     }
+                     else{
+                         usuario.addCarta(buscar.getCartaKey(key1,cards));
+                     }
+                     break;
+                 case 2:
+                     System.out.println("Que carta desea buscar?");
+                     String key2=scaner.next();
+                     key2.toUpperCase();
+                     if (buscar.keyExiste(key2,cards) == false)
+                     {
+                         System.out.println("Esta carta no existe");
+                     }
+                     else{
+                         System.out.println("Carta: "+key2);
+                         System.out.println("Tipo: "+buscar.buscarTipodeCarta(key2, cards));
+                     }
+                     contador=0;
+                     break;
+                 case 3:
+                     if(usuario.getCartas()==null){
+                         System.out.println("Usted no tiene cartas");
+                     }
+                     else{
+                     System.out.println(usuario.getCartas());
+                     }
+                     contador=0;
+                     break;
+                 case 4:
+                     System.out.println("");
+                     contador=0;
+                     break;
+                 case 5:
+                     buscar.todasMisCartas(cards);
+                     break;
+                 case 6: 
+                     System.out.println("");
+                     break;
+                 case 7:
+                     System.out.println("Adios");
+                     contador=1;
+                     break;
+                     
+                        } 
+                 
                 }
 
             }catch (IOException e) {
@@ -52,31 +106,6 @@ public class Principal{
                 }
                 catch(IOException e){
                 }
-            }
-            
-             System.out.println("Que desea hacer?");
-             System.out.println("***1. Agregar carta\n***2. Buscar una carta y mostrar su tipo\n***3. Mostrar mis cartas\n***4. Mostrar mis cartas ordenadas por tipo\n***5. Mostrar todas las cartas\n***6. Mostrar todas las cartas por tipo");
-             int option=scaner.nextInt();
-             switch(option){
-                 case 1:
-                     System.out.println("Que carta desea agregar?");
-                     String key1=scaner.next().toUpperCase();
-                     System.out.println(buscar.keyExiste(key1,cards));
-                 case 2:
-                     System.out.println("Que carta desea buscar?");
-                     String key2=scaner.next().toUpperCase();
-                     System.out.println(buscar.keyExiste(key2,cards));
-                 case 3:
-                     System.out.println(usuario.getCartas().toString());
-                 case 4:
-                     System.out.println("");
-                 case 5:
-                     System.out.println("");
-                 case 6: System.out.println("");
-                        }
-                     
-                     
-             
-                 
+            }    
          }
 }
