@@ -42,12 +42,13 @@ public class Principal{
                 int contador=0;
                 while(contador==0){
                 System.out.println("Que desea hacer?");
-                System.out.println("***1. Agregar carta\n***2. Buscar una carta y mostrar su tipo\n***3. Mostrar mis cartas\n***4. Mostrar mis cartas ordenadas por tipo\n***5. Mostrar todas las cartas\n***6. Mostrar todas las cartas por tipo\n***7.Salir");
+                System.out.println("***1. Agregar carta\n***2. Buscar una carta y mostrar su tipo\n***3. Mostrar mis cartas\n***4. Mostrar mis cartas ordenadas por tipo\n***5. Mostrar todas las cartas\n***6. Mostrar todas las cartas por tipo\n***7. Salir");
                 int option=scaner.nextInt();
              switch(option){
                  case 1:
                      System.out.println("Que carta desea agregar?");
-                     String key1=scaner.next().toUpperCase();
+                     String key1=scaner.nextLine().toUpperCase();
+                     key1=scaner.nextLine().toUpperCase();
                      if(buscar.keyExiste(key1,cards)==false){
                          System.out.println("Esta carta no existe");
                      }
@@ -58,8 +59,8 @@ public class Principal{
                      break;
                  case 2:
                      System.out.println("Que carta desea buscar?");
-                     String key2=scaner.next();
-                     key2.toUpperCase();
+                     String key2=scaner.nextLine().toUpperCase();
+                     key2=scaner.nextLine().toUpperCase();
                      if (buscar.keyExiste(key2,cards) == false)
                      {
                          System.out.println("Esta carta no existe");
